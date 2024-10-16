@@ -207,3 +207,4 @@ The MIT License.
 # notionnextkk
 # nnextkk
 # nnnext
+# MyNotionNext
