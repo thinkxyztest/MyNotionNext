@@ -199,8 +199,8 @@ const BLOG = {
     process.env.NEXT_PUBLIC_QR_CODE_CDN ||
     'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js',
 
-  BACKGROUND_LIGHT: '#eeeeee', // use hex value, don't forget '#' e.g #fffefc
-  BACKGROUND_DARK: '#000000', // use hex value, don't forget '#'
+  BACKGROUND_LIGHT: '#FF0000', // use hex value, don't forget '#' e.g #fffefc #eeeeee
+  BACKGROUND_DARK: '#FF0000', // use hex value, don't forget '#' #000000
   SUB_PATH: '', // leave this empty unless you want to deploy in a folder
 
   POST_SHARE_BAR_ENABLE: process.env.NEXT_PUBLIC_POST_SHARE_BAR || 'false', // 文章分享功能 ，将在底部显示一个分享条
