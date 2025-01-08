@@ -1,4 +1,17 @@
 {
+  "name": "MyNotionNext",
+  "version": "1.0.0",
+  "scripts": {
+    "install": "yarn install --registry https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "some-package": "^1.0.0"
+  }
+}
+
+
+
+{
   "name": "notion-next",
   "version": "4.7.3",
   "homepage": "https://github.com/tangly1024/NotionNext.git",
