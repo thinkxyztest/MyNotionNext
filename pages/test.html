@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>节奏练习</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button.start {
+      background-color: #28a745;
+      color: #fff;
+    }
+    button.stop {
+      background-color: #dc3545;
+      color: #fff;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>节奏练习</h1>
+  <p>节奏：121121</p>
+  <button id="startButton" class="start">开始练习</button>
+  <button id="stopButton" class="stop" disabled>停止练习</button>
+
+  <!-- 音频文件 -->
+  <audio id="shortBeep" src="assets/short_beep.mp3"></audio>
+  <audio id="longBeep" src="assets/long_beep.mp3"></audio>
+
+  <script>
+    const rhythm = [1, 2, 1, 1, 2, 1]; // 节奏定义
+    let isPlaying = false; // 是否正在播放
+    let interval; // 定时器引用
+    const shortBeep = document.getElementById('shortBeep');
+    const longBeep = document.getElementById('longBeep');
+    const startButton = document.getElementById('startButton');
+    const stopButton = document.getElementById('stopButton');
+
+    // 播放节奏的函数
+    function playRhythm() {
+      let index = 0; // 当前节奏索引
+      interval = setInterval(() => {
+        if (!isPlaying) return clearInterval(interval);
+        if (rhythm[index] === 1) {
+          shortBeep.play();
+        } else if (rhythm[index] === 2) {
+          longBeep.play();
+        }
+        index = (index + 1) % rhythm.length; // 循环节奏
+      }, 800); // 每个节奏间隔 0.8 秒
+    }
+
+    // 开始按钮点击事件
+    startButton.addEventListener('click', () => {
+      isPlaying = true;
+      playRhythm();
+      startButton.disabled = true;
+      stopButton.disabled = false;
+    });
+
+    // 停止按钮点击事件
+    stopButton.addEventListener('click', () => {
+      isPlaying = false;
+      clearInterval(interval);
+      startButton.disabled = false;
+      stopButton.disabled = true;
+    });
+  </script>
+</body>
+</html>
