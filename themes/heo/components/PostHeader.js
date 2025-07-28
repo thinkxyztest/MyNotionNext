@@ -98,7 +98,7 @@ export default function PostHeader({ post, siteInfo, isDarkMode }) {
             {siteConfig('POST_TITLE_ICON') && (
               <NotionIcon icon={post.pageIcon} />
             )}
-            {post.title}
+           <h1>{post.title}</h1>
           </div>
 
           {/* 标题底部补充信息 */}
